@@ -1,5 +1,9 @@
 package com.frostyfire1.logtogether;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.Filter;
@@ -33,6 +37,35 @@ public class LogTogether {
     // GameRegistry." (Remove if not needed)
     public static void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+        archiveLastLogs();
+        createLoggerAppender();
+    }
+
+    private static void archiveLastLogs() {
+        String logPath = "logs/LogTogether.log";
+        String archivePath = "logs/LogTogetherArchive";
+        File logFile = new File(logPath);
+        File archiveDir = new File(archivePath);
+
+        if (!archiveDir.exists()) {
+            boolean result = archiveDir.mkdirs();
+            if (!result) {
+                System.err.println("Failed to make archive directory!");
+                return;
+            }
+        }
+
+        if (logFile.exists()) {
+            String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+            File archive = new File("logs/LogTogetherArchive/LogTogether-" + timestamp + ".log");
+            boolean renamed = logFile.renameTo(archive);
+            if (!renamed) {
+                System.err.println("Failed to archive previous log file");
+            }
+        }
+    }
+
+    private static void createLoggerAppender() {
         LoggerContext context = (LoggerContext) LogManager.getContext(false);
         Configuration config = context.getConfiguration();
 
@@ -50,7 +83,7 @@ public class LogTogether {
 
         FileAppender appender = FileAppender.createAppender(
             "logs/LogTogether.log",
-            "true",
+            "false",
             "false",
             "LogTogether",
             "true",
