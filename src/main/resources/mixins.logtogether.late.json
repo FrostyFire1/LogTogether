@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8.5-GTNH",
   "package": "com.frostyfire1.logtogether.mixins.late",
-  "refmap": "mixins.gregtech.refmap.json",
+  "refmap": "mixins.logtogether.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
   "mixins": [],
