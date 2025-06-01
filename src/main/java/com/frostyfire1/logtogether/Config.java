@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.frostyfire1.logtogether;
 
 import java.io.File;
 
