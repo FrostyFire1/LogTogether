@@ -20,7 +20,13 @@ public enum Mixin {
         .addTargetedMod(TargetedMod.GT5U)
         .setApplyIf(() -> true)
         .setPhase(Phase.LATE)
-        .setSide(Side.BOTH));
+        .setSide(Side.BOTH)),
+    GREGTECH_TILE_ENTITY_LAG(
+        new Builder("Log GregTech Tile Entity Lag").addMixinClasses("gregtech.CommonBaseMetaTileEntityLagLogMixin")
+            .addTargetedMod(TargetedMod.GT5U)
+            .setApplyIf(() -> true)
+            .setPhase(Phase.LATE)
+            .setSide(Side.BOTH));
 
     public static final Logger LOGGER = LogManager.getLogger("LogTogether-Mixin");
 

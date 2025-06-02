@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.frostyfire1.logtogether.LogTogether;
+import com.frostyfire1.logtogether.LogTogetherLogger;
 
 import gregtech.common.tools.ToolVajra;
 
@@ -22,22 +22,27 @@ public class VajraHarvestLogMixin {
         int side, float hitX, float hitY, float hitZ, CallbackInfoReturnable<Boolean> cir) {
         if (!world.isRemote) {
             Block block = world.getBlock(x, y, z);
+            int meta = block.getDamageValue(world, x, y, z);
+            ItemStack targetBlockItemStack = new ItemStack(block, 1, meta);
+            String itemStackDisplayName = targetBlockItemStack.getDisplayName();
             if (player.isSneaking()) {
-                LogTogether.LOG.info(
-                    "LogTogether: Player {} is force harvesting {} with vajra at {},{},{}!",
-                    player.getDisplayName(),
-                    block.getLocalizedName(),
-                    x,
-                    y,
-                    z);
+                LogTogetherLogger.info(
+                    String.format(
+                        "Player %s is force harvesting %s with vajra at %d,%d,%d!",
+                        player.getDisplayName(),
+                        itemStackDisplayName,
+                        x,
+                        y,
+                        z));
             } else {
-                LogTogether.LOG.info(
-                    "LogTogether: Player {} is right clicking {} with vajra at {},{},{}!",
-                    player.getDisplayName(),
-                    block.getLocalizedName(),
-                    x,
-                    y,
-                    z);
+                LogTogetherLogger.info(
+                    String.format(
+                        "Player %s is right clicking %s with vajra at %d,%d,%d!",
+                        player.getDisplayName(),
+                        itemStackDisplayName,
+                        x,
+                        y,
+                        z));
             }
         }
     }
