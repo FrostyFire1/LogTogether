@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.frostyfire1.logtogether.Config;
 import com.frostyfire1.logtogether.LogTogetherLogger;
+import com.frostyfire1.logtogether.LoggingHelper;
 
 import gregtech.api.metatileentity.CommonBaseMetaTileEntity;
 
@@ -43,15 +44,11 @@ public class CommonBaseMetaTileEntityLagLogMixin {
     private String getWarningInfo(int timing) {
         CommonBaseMetaTileEntity self = (CommonBaseMetaTileEntity) (Object) this;
         return String.format(
-            "%s took %.3fus to tick at %d,%d,%d in dimension %d",
+            "%s took %.3fus to tick",
             self.getMetaTileEntity()
                 .getClass()
                 .getName(),
-            (double) timing / MICROSECONDS,
-            self.xCoord,
-            self.yCoord,
-            self.zCoord,
-            self.getWorldObj().provider.dimensionId);
+            (double) timing / MICROSECONDS) + LoggingHelper.getDimensionInfo(self);
 
     }
 }

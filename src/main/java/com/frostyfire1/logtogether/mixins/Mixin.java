@@ -14,12 +14,6 @@ import cpw.mods.fml.relauncher.FMLLaunchHandler;
 
 public enum Mixin {
 
-    // GREGTECH_EARLY_TEST(
-    // new Builder("Test Early Mixin on GregTech5").addMixinClasses("ic2.MixinIc2ReinforcedGlass")
-    // .addTargetedMod(TargetedMod.GT5U)
-    // .setApplyIf(() -> true)
-    // .setPhase(Phase.EARLY)
-    // .setSide(Side.BOTH)),
     VAJRA_HARVEST(new Builder("Log Vajra Harvesting").addMixinClasses("gregtech.VajraHarvestLogMixin")
         .addTargetedMod(TargetedMod.GT5U)
         .setApplyIf(() -> true)
@@ -27,6 +21,12 @@ public enum Mixin {
         .setSide(Side.BOTH)),
     GREGTECH_TILE_ENTITY_LAG(
         new Builder("Log GregTech Tile Entity Lag").addMixinClasses("gregtech.CommonBaseMetaTileEntityLagLogMixin")
+            .addTargetedMod(TargetedMod.GT5U)
+            .setApplyIf(() -> true)
+            .setPhase(Phase.LATE)
+            .setSide(Side.BOTH)),
+    LAPOTRONIC_SUPERCAPACITOR_STORAGE(
+        new Builder("Log LSC Storage").addMixinClasses("gregtech.LapotronicSuperCapacitorStorageLogMixin")
             .addTargetedMod(TargetedMod.GT5U)
             .setApplyIf(() -> true)
             .setPhase(Phase.LATE)
