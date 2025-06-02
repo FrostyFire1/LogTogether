@@ -1,0 +1,31 @@
+services:
+  loki:
+    container_name: LogTogetherLoki
+    image: grafana/loki:2.9.0
+    ports:
+      - "3100:3100"
+
+  promtail:
+    container_name: LogTogetherPromtail
+    image: grafana/promtail:latest
+    volumes:
+      - ./promtail/config.yaml:/etc/promtail/config.yaml
+      - ../run/logs:/var/log/logtogether
+    command: -config.file=/etc/promtail/config.yaml
+    depends_on:
+      - loki
+
+  grafana:
+    container_name: LogTogetherGrafana
+    image: grafana/grafana:9.5.2
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=1234
+    depends_on:
+      - loki
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
+volumes:
+  grafana-storage:

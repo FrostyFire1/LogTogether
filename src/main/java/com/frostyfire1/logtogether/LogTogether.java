@@ -69,8 +69,12 @@ public class LogTogether {
         LoggerContext context = (LoggerContext) LogManager.getContext(false);
         Configuration config = context.getConfiguration();
 
-        PatternLayout layout = PatternLayout
-            .createLayout("[%d{HH:mm:ss}] [%t/%level] [%logger/%X{mod}]: %msg%n", config, null, "UTF-8", "true");
+        PatternLayout layout = PatternLayout.createLayout(
+            "[%d{yyyy-MM-dd HH:mm:ss}{UTC}] [%t/%level] [%logger/%X{mod}]: %msg%n",
+            config,
+            null,
+            "UTF-8",
+            "true");
 
         // This filter will only be applied to the message itself. if useRawMsg is false and the string is formatted
         // then
