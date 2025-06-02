@@ -1,7 +1,6 @@
 package com.frostyfire1.logtogether.mixins.late.gregtech;
 
 import static com.frostyfire1.logtogether.Constants.MICROSECONDS;
-import static com.frostyfire1.logtogether.Constants.MILISECONDS;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -44,10 +43,10 @@ public class CommonBaseMetaTileEntityLagLogMixin {
     private String getWarningInfo(int timing) {
         CommonBaseMetaTileEntity self = (CommonBaseMetaTileEntity) (Object) this;
         return String.format(
-            "%s took %f miliseconds to tick at %d,%d,%d in dimension %d",
+            "%s took %.3fus to tick at %d,%d,%d in dimension %d",
             self.getMetaTileEntity()
                 .getClass(),
-            (double) timing / MILISECONDS,
+            (double) timing / MICROSECONDS,
             self.xCoord,
             self.yCoord,
             self.zCoord,

@@ -28,7 +28,7 @@ public class VajraHarvestLogMixin {
             if (player.isSneaking()) {
                 LogTogetherLogger.info(
                     String.format(
-                        "Player %s is force harvesting %s with vajra at %d,%d,%d!",
+                        "VAJRA HARVEST: Player %s is force harvesting %s at %d,%d,%d!",
                         player.getDisplayName(),
                         itemStackDisplayName,
                         x,
@@ -37,7 +37,7 @@ public class VajraHarvestLogMixin {
             } else {
                 LogTogetherLogger.info(
                     String.format(
-                        "Player %s is right clicking %s with vajra at %d,%d,%d!",
+                        "VAJRA HARVEST: Player %s is right clicking %s at %d,%d,%d!",
                         player.getDisplayName(),
                         itemStackDisplayName,
                         x,

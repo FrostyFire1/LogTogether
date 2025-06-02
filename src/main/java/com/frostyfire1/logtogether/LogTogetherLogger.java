@@ -23,7 +23,7 @@ public class LogTogetherLogger {
         String timestamp = ZonedDateTime.now(java.time.ZoneOffset.UTC)
             .format(formatter);
         try {
-            fileWriter.write(String.format("%s %s\n", timestamp, info));
+            fileWriter.write(String.format("[%s] %s\n", timestamp, info));
             fileWriter.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);

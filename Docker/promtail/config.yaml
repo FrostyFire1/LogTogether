@@ -18,11 +18,12 @@ scrape_configs:
           __path__: /var/log/logtogether/LogTogether.log
     pipeline_stages:
       - regex:
-          expression: '(?P<time>[^\]]+) (?P<message>.+)'
+          expression: '(?P<time>\[[^\]]+\]) (?P<logtype>.*): (?P<message>.+)'
       - labels:
-          level: ""
-          thread: ""
-          logger: ""
+          message: ""
+          logtype: ""
+          classname: ""
+          time: ""
       - timestamp:
           source: time
           format: "2006-01-02 15:04:05"
