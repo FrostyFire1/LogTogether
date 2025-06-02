@@ -45,7 +45,8 @@ public class CommonBaseMetaTileEntityLagLogMixin {
         return String.format(
             "%s took %.3fus to tick at %d,%d,%d in dimension %d",
             self.getMetaTileEntity()
-                .getClass(),
+                .getClass()
+                .getName(),
             (double) timing / MICROSECONDS,
             self.xCoord,
             self.yCoord,
