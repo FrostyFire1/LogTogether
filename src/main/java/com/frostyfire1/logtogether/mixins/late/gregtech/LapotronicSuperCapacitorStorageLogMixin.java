@@ -30,6 +30,8 @@ public class LapotronicSuperCapacitorStorageLogMixin {
     @Shadow
     protected BigInteger stored;
 
+    @Shadow
+    private BigInteger capacity;
     @Unique
     private boolean logStorage;
 
@@ -66,7 +68,7 @@ public class LapotronicSuperCapacitorStorageLogMixin {
     private String getLSCInfo(MTELapotronicSuperCapacitor self) {
         IGregTechTileEntity gte = self.getBaseMetaTileEntity();
         CommonBaseMetaTileEntity commonSelf = (CommonBaseMetaTileEntity) gte;
-        return String.format("LSC STORAGE: %s on LSC", this.stored.toString())
+        return String.format("LSC STORAGE: %s/%s on LSC", this.stored.toString(), this.capacity.toString())
             + LoggingHelper.getDimensionInfo(commonSelf);
     }
 }
