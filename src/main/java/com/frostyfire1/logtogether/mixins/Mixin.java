@@ -10,30 +10,32 @@ import java.util.function.Supplier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.frostyfire1.logtogether.Config;
+
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
 
 public enum Mixin {
 
     VAJRA_HARVEST(new Builder("Log Vajra Harvesting").addMixinClasses("gregtech.VajraHarvestLogMixin")
         .addTargetedMod(TargetedMod.GT5U)
-        .setApplyIf(() -> true)
+        .setApplyIf(() -> Config.LOG_VAJRA_HARVESTING)
         .setPhase(Phase.LATE)
         .setSide(Side.BOTH)),
     GREGTECH_TILE_ENTITY_LAG(
         new Builder("Log GregTech Tile Entity Lag").addMixinClasses("gregtech.CommonBaseMetaTileEntityLagLogMixin")
             .addTargetedMod(TargetedMod.GT5U)
-            .setApplyIf(() -> true)
+            .setApplyIf(() -> Config.LOG_TILE_ENTITY_LAG)
             .setPhase(Phase.LATE)
             .setSide(Side.BOTH)),
     LAPOTRONIC_SUPERCAPACITOR_STORAGE(
         new Builder("Log LSC Storage").addMixinClasses("gregtech.LapotronicSuperCapacitorStorageLogMixin")
             .addTargetedMod(TargetedMod.GT5U)
-            .setApplyIf(() -> true)
+            .setApplyIf(() -> Config.LOG_LSC_STORAGE)
             .setPhase(Phase.LATE)
             .setSide(Side.BOTH)),
     MULTIBLOCK_SHUTDOWN(new Builder("Log Multiblock Shutdowns").addMixinClasses("gregtech.MultiBlockShutdownLogMixin")
         .addTargetedMod(TargetedMod.GT5U)
-        .setApplyIf(() -> true)
+        .setApplyIf(() -> Config.LOG_MULTIBLOCK_SHUTDOWN)
         .setPhase(Phase.LATE)
         .setSide(Side.BOTH));
 
