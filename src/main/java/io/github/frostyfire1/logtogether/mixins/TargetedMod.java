@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether.mixins;
+package io.github.frostyfire1.logtogether.mixins;
 
 import cpw.mods.fml.common.Mod;
 

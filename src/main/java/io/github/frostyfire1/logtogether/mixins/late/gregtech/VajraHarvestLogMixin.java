@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether.mixins.late.gregtech;
+package io.github.frostyfire1.logtogether.mixins.late.gregtech;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,9 +10,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.frostyfire1.logtogether.LogTogetherLogger;
-
 import gregtech.common.tools.ToolVajra;
+import io.github.frostyfire1.logtogether.LogTogetherLogger;
 
 @Mixin(value = ToolVajra.class, remap = false)
 public class VajraHarvestLogMixin {

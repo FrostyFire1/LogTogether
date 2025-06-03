@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether;
+package io.github.frostyfire1.logtogether;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,8 +20,8 @@ public class LogTogether {
     public static final Logger LOG = LogManager.getLogger(MODID);
 
     @SidedProxy(
-        clientSide = "com.frostyfire1.logtogether.ClientProxy",
-        serverSide = "com.frostyfire1.logtogether.CommonProxy")
+        clientSide = "io.github.frostyfire1.logtogether.ClientProxy",
+        serverSide = "io.github.frostyfire1.logtogether.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

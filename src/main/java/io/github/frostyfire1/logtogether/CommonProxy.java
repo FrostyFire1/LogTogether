@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether;
+package io.github.frostyfire1.logtogether;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;

@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether.mixins;
+package io.github.frostyfire1.logtogether.mixins;
 
 import java.util.List;
 import java.util.Map;

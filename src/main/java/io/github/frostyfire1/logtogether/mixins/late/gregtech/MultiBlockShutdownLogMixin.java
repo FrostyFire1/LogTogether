@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether.mixins.late.gregtech;
+package io.github.frostyfire1.logtogether.mixins.late.gregtech;
 
 import javax.annotation.Nonnull;
 
@@ -7,13 +7,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.frostyfire1.logtogether.LogTogetherLogger;
-import com.frostyfire1.logtogether.LoggingHelper;
-
 import gregtech.api.metatileentity.CommonBaseMetaTileEntity;
 import gregtech.api.metatileentity.implementations.MTEMultiBlockBase;
 import gregtech.api.util.shutdown.ShutDownReason;
 import gregtech.api.util.shutdown.ShutDownReasonRegistry;
+import io.github.frostyfire1.logtogether.LogTogetherLogger;
+import io.github.frostyfire1.logtogether.LoggingHelper;
 
 @Mixin(value = MTEMultiBlockBase.class, remap = false)
 public class MultiBlockShutdownLogMixin {

@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether;
+package io.github.frostyfire1.logtogether;
 
 import java.io.File;
 import java.io.FileWriter;

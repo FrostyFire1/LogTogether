@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether.mixins.late.gregtech;
+package io.github.frostyfire1.logtogether.mixins.late.gregtech;
 
 import java.math.BigInteger;
 
@@ -17,11 +17,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.frostyfire1.logtogether.LogTogetherLogger;
-import com.frostyfire1.logtogether.LoggingHelper;
-
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.CommonBaseMetaTileEntity;
+import io.github.frostyfire1.logtogether.LogTogetherLogger;
+import io.github.frostyfire1.logtogether.LoggingHelper;
 import kekztech.common.tileentities.MTELapotronicSuperCapacitor;
 
 @Mixin(value = MTELapotronicSuperCapacitor.class, remap = false)

@@ -1,12 +1,13 @@
-package com.frostyfire1.logtogether.mixins;
+package io.github.frostyfire1.logtogether.mixins;
 
 import java.io.File;
 import java.util.List;
 import java.util.Set;
 
-import com.frostyfire1.logtogether.Config;
 import com.gtnewhorizon.gtnhmixins.ILateMixinLoader;
 import com.gtnewhorizon.gtnhmixins.LateMixin;
+
+import io.github.frostyfire1.logtogether.Config;
 
 @LateMixin
 public class LateMixinPlugin implements ILateMixinLoader {

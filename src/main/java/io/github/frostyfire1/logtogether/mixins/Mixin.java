@@ -1,4 +1,4 @@
-package com.frostyfire1.logtogether.mixins;
+package io.github.frostyfire1.logtogether.mixins;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,9 +10,8 @@ import java.util.function.Supplier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.frostyfire1.logtogether.Config;
-
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
+import io.github.frostyfire1.logtogether.Config;
 
 public enum Mixin {
 
