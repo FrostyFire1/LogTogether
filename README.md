@@ -17,3 +17,4 @@ The mod comes with a .json file containing a grafana dashboard and a docker comp
 4. Check that grafana works by going to http://localhost:3000
 5. Go to `Dashboard` and import the .json
 6. Enjoy the logs
+![](preview.png)
