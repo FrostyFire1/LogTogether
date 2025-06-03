@@ -30,7 +30,12 @@ public enum Mixin {
             .addTargetedMod(TargetedMod.GT5U)
             .setApplyIf(() -> true)
             .setPhase(Phase.LATE)
-            .setSide(Side.BOTH));
+            .setSide(Side.BOTH)),
+    MULTIBLOCK_SHUTDOWN(new Builder("Log Multiblock Shutdowns").addMixinClasses("gregtech.MultiBlockShutdownLogMixin")
+        .addTargetedMod(TargetedMod.GT5U)
+        .setApplyIf(() -> true)
+        .setPhase(Phase.LATE)
+        .setSide(Side.BOTH));
 
     public static final Logger LOGGER = LogManager.getLogger("LogTogether-Mixin");
 
