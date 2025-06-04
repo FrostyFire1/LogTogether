@@ -31,10 +31,22 @@ jobs:
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      uses: gradle/actions/setup-gradle@v4
+      with:
+        build-scan-publish: true
+        build-scan-terms-of-use-url: "https://gradle.com/terms-of-service"
+        build-scan-terms-of-use-agree: "yes"
+        validate-wrappers: true
 
-    - name: Build with Gradle Wrapper
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Setup the workspace
+      run: ./gradlew --build-cache --info --stacktrace ${{ inputs.workspace }}
+
+    - name: Generate mod jars
       run: ./gradlew --build-cache --info --stacktrace assemble
+      
     - name: Attach compilation artifacts
       uses: actions/upload-artifact@v4
       with:
